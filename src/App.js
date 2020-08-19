@@ -1,24 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import data from "./data";
+import Table from "./container/Table";
+import SideBar from "./container/Sidebar";
+import ActionCenter from "./container/Actioncenter";
+import Header from "./container/Header";
+import InlineLink from "./container/Inlinelinks";
+import SelectOptions from "./container/Selectoptions";
+import AddNewGig from "./container/Newgig";
+import "./index.css";
+
+export const NewGig = React.createContext();
 
 function App() {
+  const [newGig, setNewGig] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <SideBar />
+      <div>
+        <ActionCenter />
+        <Header onClickHander={() => setNewGig(!newGig)} />
+        <NewGig.Provider value={newGig}>
+          <InlineLink />
+        </NewGig.Provider>
+        {newGig ? (
+          <AddNewGig />
+        ) : (
+          <>
+            <SelectOptions />
+            <div>
+              <Table data={data} />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 }

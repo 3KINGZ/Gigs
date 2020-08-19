@@ -1,13 +1,369 @@
-body {
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #fbfbff;
+  font-family: sans-serif;
+  font-size: 0.9em;
+}
+
+.main-container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+
+.main-container > div:nth-of-type(1) {
+  padding-top: 25px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border: 1px solid #ececec;
+  /* position: fixed; */
+}
+
+.sidebar-links {
+  margin-top: 18%;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+.sidebar-link > div:nth-of-type(2) {
+  vertical-align: 5px;
+  margin-left: 2%;
+  color: #514c5d;
+  opacity: 0.5;
+}
+
+.main-container > div:nth-of-type(2) {
+  height: 100vh;
+  overflow: auto;
+}
+
+.action-center {
+  display: flex;
+  justify-content: space-between;
+  height: 20vh;
+  padding-left: 20px;
+  padding-top: 25px;
+  border-bottom: 1px solid #ececec;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
+.icon-container > div {
+  cursor: pointer;
+}
+
+.icon-container > div:nth-of-type(4) {
+  vertical-align: 10px !important;
+}
+
+.top-input {
+  width: 40%;
+  border-radius: 10px;
+  height: 7vh;
+  border: 1px solid #ececec;
+  outline: none;
+  padding: 1.5%;
+  color: #514c5d;
+}
+
+.header {
+  margin-top: 3%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.header > h1 {
+  color: #2c263d;
+  text-align: left;
+  opacity: 0.8;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.header > button {
+  background-color: #2f417e;
+  /* height: 7vh; */
+  /* width: 10%; */
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  padding: 10px 20px;
+}
+
+.link-container {
+  margin-top: 3%;
+  color: #585461;
+  border-bottom: 1px solid #ececec;
+}
+
+.inline-links {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.inline-link {
+  padding-bottom: 1%;
+  color: #585461;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.inline-link > span:nth-of-type(2) {
+  display: inline-block;
+  background-color: #fbb30b;
+  padding: 4px 8px;
+  font-size: 0.7em;
+  color: white;
+  font-weight: bold;
+  border-radius: 7px;
+  vertical-align: 3px;
+}
+
+.active {
+  border-bottom: 3px solid #fbb30b;
+  opacity: 2;
+  font-weight: bold;
+}
+
+.select {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+  color: #bcbcbc;
+  opacity: 1;
+}
+
+.select > div {
+  padding: 10px 35px;
+  border: 1px solid #eeeeee;
+  border-radius: 15px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.select > select {
+  padding: 10px 35px;
+  border: 1px solid #eeeeee;
+  border-radius: 15px;
+  opacity: 1;
+  color: #bcbcbc;
+  opacity: 1;
+  background: inherit;
+  cursor: pointer;
+}
+
+.select-active {
+  border: 1px solid #fbb30b !important;
+}
+
+.select-active > img {
+  vertical-align: -6px;
+}
+
+table {
+  padding: 0 20px;
+  border-collapse: seperate;
+  width: 100%;
+  border-spacing: 0 20px;
+  letter-spacing: -0.36px;
+  color: #49484d;
+  opacity: 1;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+.main-table-content {
+  box-shadow: 0px 3px 6px #00000003;
+  border: 1px solid #f6f6f6;
+  background: #ffffff;
+}
+
+tr {
+  margin-bottom: 20px;
+}
+
+td > button {
+  background-color: #fcf4e6;
+  color: #fbb30b;
+  opacity: 1;
+  border-radius: 10px;
+  opacity: 1;
+  width: 150px;
+  height: 45px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: "Karla", sans-serif;
+}
+
+th {
+  letter-spacing: -0.36px;
+  color: #565d74;
+  opacity: 0.8;
+}
+
+.first-td {
+  /* border-radius: 20px; */
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+.last-td {
+  /* border-radius: 20px; */
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.input-checkbox {
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  opacity: 1;
+  width: 40px;
+}
+
+.new {
+  margin-top: 3%;
+}
+
+.options {
+  background: #ffffff;
+  box-shadow: 0px 30px 50px #0000000d;
+  border: 1px solid #f6f6f6;
+  border-radius: 20px;
+  opacity: 1;
+  width: 200px;
+}
+
+.options > div {
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.add-new-gig {
+  display: flex;
+}
+
+.add-new-gig {
+  margin-left: 4%;
+}
+
+.basic-data {
+  width: 30%;
+  box-shadow: 0px 30px 50px #0000000d;
+  border: 1px solid #f6f6f6;
+  border-radius: 20px;
+  opacity: 1;
+  padding: 8%;
+}
+
+.input-flex-vertical {
+  display: flex;
+}
+
+.input-flex-vertical > div {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8%;
+}
+
+.full-width-input {
+  display: flex;
+  flex: 1;
+  /* margin-top: 3%; */
+}
+
+.full-width {
+  /* margin-top: 3% !important; */
+  width: 100%;
+}
+
+.margiin {
+  margin-top: 2%;
+}
+
+.input-width {
+  width: 100%;
+  height: 5vh;
+  border: 1px solid #e5e5e5;
+  border-radius: 7px;
+  opacity: 1;
+  outline: none;
+  padding: 2%;
+}
+
+.buttons {
+  margin-left: 3%;
+}
+
+.buttons > button {
+  margin-top: 5%;
+  margin-left: 4%;
+  padding: 5px 10px;
+}
+
+.buttons > button:nth-of-type(1) {
+  background: none;
+  border: none;
+}
+
+.buttons > button:nth-of-type(2) {
+  background-color: #2f417e;
+  border-radius: 5px;
+  opacity: 1;
+  color: white;
+  border: 1px solid #f6f6f6;
+  outline: none;
+}
+
+.new-gig-header {
+  margin-left: 6%;
+  margin-bottom: 3%;
+}
+
+.menu {
+  display: none;
+}
+
+.ham-menu {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .menu {
+    display: block;
+    text-align: left;
+  }
+  .select {
+    display: none;
+  }
+  .action-center {
+    display: none;
+  }
 }
